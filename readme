@@ -1,0 +1,42 @@
+# 🌐 My Final Project — Simple Portfolio Page
+
+A small, single-page HTML site built to practice the full **Git & GitHub
+workflow** (branching, pull requests, issues, code review, and GitHub
+Actions) as my bootcamp capstone.
+
+> The content of the site doesn't matter — this repo exists to show a
+> clean, real-world Git/GitHub workflow.
+
+---
+
+## 📁 Project structure
+
+```
+.
+├── index.html                     # Main page
+├── style.css                      # All styling (kept separate from HTML)
+├── .gitignore                     # Files Git should ignore
+├── .github/
+│   └── workflows/
+│       └── check.yml              # GitHub Actions workflow
+└── README.md                      # This file
+```
+
+
+
+## 🛠 Built with
+
+- HTML
+- CSS
+
+## ✅ What this repo demonstrates
+
+- Meaningful, step-by-step commits
+- Feature branches merged through Pull Requests
+- An Issue opened and closed by a linked PR
+- A code review comment before merging
+- A working GitHub Actions check on every push
+
+---
+
+*Final Project — Git & GitHub Bootcamp*
