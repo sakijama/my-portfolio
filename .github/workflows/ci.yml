@@ -1,0 +1,33 @@
+name: Deadline Check
+
+# Wuxuu shaqeynayaa marka la sameeyo push ama pull request
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  check-deadline:
+    name: Hubi Waqtiga Deadline-ka
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hubi in waqtiga hadda uu ka horreeyo deadline-ka
+        run: |
+          # Deadline: Saturday, August 22, 2026 — 12:00 PM (Africa/Mogadishu / EAT, UTC+3)
+          # Waxaa loo beddelay UTC si loo barbardhigo (12:00 EAT = 09:00 UTC)
+          DEADLINE="2026-08-22T09:00:00Z"
+          NOW=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+          DEADLINE_EPOCH=$(date -d "$DEADLINE" +%s)
+          NOW_EPOCH=$(date -d "$NOW" +%s)
+
+          echo "Waqtiga deadline-ka (EAT): Saturday, August 22, 2026 12:00 PM"
+          echo "Waqtiga hadda (UTC): $NOW"
+
+          if [ "$NOW_EPOCH" -gt "$DEADLINE_EPOCH" ]; then
+            echo "::error::Deadline-ka wuu dhaafay (Saturday, August 22, 2026 12:00 PM EAT). Push/PR-kan lama aqbali karo."
+            exit 1
+          else
+            echo "Waqtiga weli wuu jiraa. Push/PR-ku waa la aqbalay."
+          fi
